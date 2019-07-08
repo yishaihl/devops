@@ -5,10 +5,11 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support.ui import Select
 #from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.ui import Select
 #Chrome exacutable path variable:
-driver_location = "//Users//yishaihl//Desktop//ChromeDriver"
+driver_location = "//Users//yishaihalpert//Desktop//ChromeDriver"
 #Enter the website:
 driver = webdriver.Chrome(executable_path=driver_location)
 driver.maximize_window()
@@ -42,21 +43,23 @@ search_element = WebDriverWait(driver, 10).until(EC.visibility_of_element_locate
 ActionChains(driver).move_to_element(search_element).perform()
 click_item = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="ember664_chosen"]/a/span')))
 click_item.click()
-
-
-select = Select(driver.find_element_by_id('ember664_chosen'))
-
-select.select_by_visible_text('עד 99 ש"ח')
-
-
-#select = Select(driver.find_element_by_xpath('//*[@id="ember664_chosen"]/a/span'))
-#select.select_by_value('עד 99 ש"ח')
-
-
-
-
-
-
-
-
-
+#Pick ש״ח 300-499:
+search_element = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div[2]/div/header/div[4]/div/form/div[1]/div/ul/li[5]')))
+ActionChains(driver).move_to_element(search_element).perform()
+click_item = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div[2]/div/header/div[4]/div/form/div[1]/div/ul/li[5]')))
+click_item.click()
+#Pick the area:
+search_element = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="ember679_chosen"]')))
+ActionChains(driver).move_to_element(search_element).perform()                                                                       
+click_item = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="ember679_chosen"]')))
+click_item.click()                                                                                                                   
+#Pick ת״א והסביבה:
+search_element = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div[2]/div/header/div[4]/div/form/div[2]/div/ul/li[2]')))
+ActionChains(driver).move_to_element(search_element).perform()                                                                                 
+click_item = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div[2]/div/header/div[4]/div/form/div[2]/div/ul/li[2]')))
+click_item.click()
+#Pick category:
+search_element = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="ember679_chosen"]')))
+ActionChains(driver).move_to_element(search_element).perform()
+click_item = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="ember679_chosen"]')))
+click_item.click()
