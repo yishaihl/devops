@@ -1,4 +1,5 @@
 #Import Required Packages:
+from selenium.webdriver.remote.webelement import WebElement
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -9,10 +10,12 @@ from selenium.webdriver.support.ui import Select
 #from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.ui import Select
 #Project variable:
-driver_location = "//Users//yishaihl//Desktop//ChromeDriver"
+driver_location = "//Users//yishaihalpert//Desktop//ChromeDriver"
 website_url = "https://buyme.co.il/"
-giftcard_price = "400"
+gift_price = "400"
+sender_name = "ישי הלפרט"
 receiver_name = "מאיה וויס"
+blessing = "באהבה גדולה ממני!"
 #Enter the website:
 driver = webdriver.Chrome(executable_path=driver_location)
 driver.maximize_window()
@@ -81,17 +84,40 @@ pick_business[0].click()
 search_element = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.CLASS_NAME, "money")))
 ActionChains(driver).move_to_element(search_element).perform()
 click_item = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.CLASS_NAME, "money")))
-enter_number = click_item.click()
+click_item.click()
 actions = ActionChains(driver)
-actions.move_to_element(click_item).send_keys(giftcard_price).perform()
+actions.move_to_element(click_item).send_keys(gift_price).perform()
 search_button = driver.find_elements_by_xpath('/html/body/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div[2]/form/div[2]/div/button')
 search_button[0].click()
 #Press radio button "למישהו אחר":
 driver.execute_script("arguments[0].click();",driver.find_element_by_xpath("/html/body/div[2]/div/div[2]/form/div[1]/div/div/div[1]/div/div[2]/div[1]/div/div[1]/label[1]/span[1]"))
 #Enter receiver name:
-driver.execute_script("arguments[0].click();",driver.find_element_by_xpath("/html/body/div[2]/div/div[2]/form/div[1]/div/div/div[1]/div/div[2]/div[1]/div/div[2]/label[1]/span"))
-
-
-
-
+search_element = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div[2]/div/div[2]/form/div[1]/div/div/div[1]/div/div[2]/div[1]/div/div[2]/label[1]/span")))
+ActionChains(driver).move_to_element(search_element).perform()
+click_item = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div[2]/div/div[2]/form/div[1]/div/div/div[1]/div/div[2]/div[1]/div/div[2]/label[1]/span")))
+click_item.click()
+actions = ActionChains(driver)
+actions.move_to_element(click_item).send_keys(receiver_name).perform()
+#Enter sender name:
+search_element = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div[2]/div/div[2]/form/div[1]/div/div/div[1]/div/div[2]/div[1]/div/div[2]/label[2]/span")))
+ActionChains(driver).move_to_element(search_element).perform()
+click_item = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div[2]/div/div[2]/form/div[1]/div/div/div[1]/div/div[2]/div[1]/div/div[2]/label[2]/span")))
+click_item.click()
+actions = ActionChains(driver)
+actions.move_to_element(click_item).send_keys(sender_name).perform()
+#Enter a blessing:
+search_element = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div[2]/div/div[2]/form/div[1]/div/div/div[1]/div/div[2]/div[1]/div/div[3]/label[2]/textarea")))
+ActionChains(driver).move_to_element(search_element).perform()
+click_item = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div[2]/div/div[2]/form/div[1]/div/div/div[1]/div/div[2]/div[1]/div/div[3]/label[2]/textarea")))
+click_item.click()
+actions = ActionChains(driver)
+actions.move_to_element(click_item).send_keys(blessing).perform()
+#Scroll window down:
+#element = driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/form/div[1]/div/div/div[1]/div/div[2]/div[2]')
+#driver.execute_script("arguments[0].scrollIntoView()", element)
+#Upload a picture:
+attached_picture = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div[2]/div/div[2]/form/div[1]/div/div/div[1]/div/div[2]/div[2]/div")))
+ActionChains(driver).move_to_element(attached_picture).send_keys("//Users/yishaihalpert/Desktop/1.jpg").click()
+click_item = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div[2]/div/div[2]/form/div[1]/div/div/div[1]/div/div[2]/div[2]/div")))
+#search_element.send_keys("//Users/yishaihalpert/Desktop/1.jpg").click()
 
