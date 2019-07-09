@@ -9,14 +9,15 @@ from selenium.webdriver.support.ui import Select
 #from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.ui import Select
 #Project variable:
-driver_location = "//Users//yishaihalpert//Desktop//ChromeDriver"
-website_url = "https://buyme.co.il/?gclid=CjwKCAjw04vpBRB3EiwA0IieapYeHwm---U-wThAucvtHhCIUuVvO53Daj9x1g9hkbv1TlvJrrFMHxoClJUQAvD_BwE"
+driver_location = "//Users//yishaihl//Desktop//ChromeDriver"
+website_url = "https://buyme.co.il/"
 giftcard_price = "400"
+receiver_name = "מאיה וויס"
 #Enter the website:
 driver = webdriver.Chrome(executable_path=driver_location)
 driver.maximize_window()
 driver.get(website_url)
-driver.implicitly_wait(20)
+driver.implicitly_wait(30)
 #Press on button "״כניסה והרשמה:
 #search_element = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.CLASS_NAME, "seperator-link")))
 #ActionChains(driver).move_to_element(search_element).perform()
@@ -88,13 +89,9 @@ search_button[0].click()
 #Press radio button "למישהו אחר":
 driver.execute_script("arguments[0].click();",driver.find_element_by_xpath("/html/body/div[2]/div/div[2]/form/div[1]/div/div/div[1]/div/div[2]/div[1]/div/div[1]/label[1]/span[1]"))
 #Enter receiver name:
-search_element = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="ember1056"]')))
-ActionChains(driver).move_to_element(search_element).perform()
-click_item = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="ember1056"]')))
-enter_number = click_item.click()
-actions = ActionChains(driver)
-actions.move_to_element(click_item).send_keys("מאיה וויס").perform()
+driver.execute_script("arguments[0].click();",driver.find_element_by_xpath("/html/body/div[2]/div/div[2]/form/div[1]/div/div/div[1]/div/div[2]/div[1]/div/div[2]/label[1]/span"))
 
 
 
-#//*[@id="ember2075"]
+
+
