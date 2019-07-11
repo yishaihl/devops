@@ -44,7 +44,6 @@ driver.execute_script("arguments[0].click();",driver.find_element_by_id("ember10
 #Press button "...הרשמה":
 login = driver.find_elements_by_xpath('//*[@id="ember1035"]/button')
 login[0].click()
-
 #Pick a price point:
 time.sleep(4)
 search_element = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="ember664_chosen"]/a/span')))
