@@ -8,7 +8,7 @@ from selenium.webdriver.common.by import By
 import time
 #Project variable:
 driver_location = "//Users//yishaihl//Desktop//ChromeDriver"
-website_url = "https://buyme.co.il/"
+website_url = open("//Users//yishaihl//Desktop//url.txt", "r")
 gift_price = "400"
 sender_name = "ישי הלפרט"
 receiver_name = "מאיה וויס"
