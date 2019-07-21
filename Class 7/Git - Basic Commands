@@ -1,0 +1,39 @@
+#Create project folder repository:
+mkdir test
+cd test
+#Git init - initialize brand new git repository:
+git init
+#Check for the current status of the git repository:
+git status
+#Register git user:
+git config user.name "test"
+#Register git e-mail:
+git config user.email "test@local.com"
+#Register / Add new file to git
+git add test_file.txt
+#Git commit the file to the repository:
+git commit -m "Add my file" - message of the changes in the code.
+#Add the second file to git:
+git add .
+#Create branch:
+git branch new_feature
+#Get list of current branches:
+git branch
+#Switch to another branch:
+git checkout  branch_name
+#Git log of commited files:
+git log
+#Checkout to commit
+git checkout bfcea8df1e90fa9a486b55571d2928b92666844a
+#Move back to one of the last commit you want:
+git reset --hard [commit UUID]
+#Revert used to undo a commit.
+git revert [commit UUID]
+#Add remote git URL:
+git remote add origin git@github.com:dgotlieb/intro.js.git
+#Publish our local branch to the remote location:
+git push -u origin master
+#Git clone used to clone the remote repository to our local machine:
+git clone git@github.com:dgotlieb/intro.js.git
+#Into a specific folder:
+git clone git@github.com:dgotlieb/intro.js.git /Users/yishaihalpert...etc
