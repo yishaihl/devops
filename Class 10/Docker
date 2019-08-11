@@ -1,5 +1,35 @@
-FROM python:3 #Base application image
+#Docker basic file
 
-ADD my_script.py / #Add your python script file
+FROM python:3 #Base application image.
 
-CMD ["python", "./my_script.py"] #Run your script file when the container spins up
+ADD my_script.py / #Add your python script file.
+
+CMD ["python", "./my_script.py"] #Run your script file when the container spins up.
+
+====================================================================================
+
+docker version #Docker version.
+
+docker pull #Pull Images from hub.docker.com.
+
+docker run image_name #Create container from an image.
+
+docker run --name #Give your container name.
+
+docker run --name:build_link #Run specific image build.
+
+docker run -p 81:80 #Publish the container and bind port 80 in the container to port 81 on the host.
+
+docker run  -d test #detached mode ~ so the container will run on the background so you will be able to work with the terminal.
+
+docker push #Push the iamgeo to Docker hub repository
+
+docker images #Show the running cached images.
+
+docker rm container_name #Delete the container.
+
+docker rmi #Delete image from local storage.
+
+docker build path_to_docker_file  #Build image from specific docker file.
+
+docker ps #Show list of all running containers
