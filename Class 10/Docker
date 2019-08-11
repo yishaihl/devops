@@ -1,0 +1,5 @@
+FROM python:3 #Base application image
+
+ADD my_script.py / #Add your python script file
+
+CMD ["python", "./my_script.py"] #Run your script file when the container spins up
