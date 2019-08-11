@@ -1,0 +1,5 @@
+PWD - the location we are in.
+&& - join couple of commands.
+touch - create file.
+echo - write into file.
+cat - print content of file.
